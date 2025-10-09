@@ -8,7 +8,11 @@ include 'config.php';
                               WHERE g.id_gunung = $id_gunung");
  $gunung = mysqli_fetch_assoc($result);
 
-
+// Hitung jumlah pendaki
+ $count_result = mysqli_query($conn, "SELECT COUNT(*) as total FROM pendaki p 
+                                    JOIN registrasi r ON p.id_registrasi = r.id_registrasi 
+                                    WHERE r.id_gunung = $id_gunung");
+ $count = mysqli_fetch_assoc($count_result)['total'];
 ?>
 <!DOCTYPE html>
 <html>
