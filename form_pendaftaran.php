@@ -1,4 +1,18 @@
+<?php
+session_start();
+include 'config.php';
+ $id_gunung = $_GET['id_gunung'];
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $_SESSION['id_gunung'] = $id_gunung;
+    $_SESSION['tanggal_pendakian'] = $_POST['tanggal_pendakian'];
+    $_SESSION['jumlah_orang'] = $_POST['jumlah_orang'];
+    $_SESSION['no_hp'] = $_POST['no_hp'];
+    
+    header("Location: form_pendaftaran_detail.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
