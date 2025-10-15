@@ -20,19 +20,62 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
     <title>Registrasi User</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
-<body>
-    <h2>Registrasi User Baru</h2>
-    <?php if (isset($error)) echo "<p style='color:red'>$error</p>"; ?>
+<body class="d-flex align-items-center justify-content-center vh-100">
+
+<div class="card shadow p-4" style="width: 400px;">
+    <h3 class="text-center text-success mb-4">Registrasi User Baru</h3>
+
+    <?php if (isset($error)): ?>
+        <div class="alert alert-danger"><?php echo $error; ?></div>
+    <?php endif; ?>
+
     <form method="POST">
-        <input type="text" name="username" placeholder="Username" required><br>
-        <input type="email" name="email" placeholder="Email" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-        <button type="submit">Register</button>
+        <div class="mb-3">
+            <label class="form-label text-success">Username</label>
+            <input type="text" name="username" class="form-control" placeholder="Masukkan username" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label text-success">Email</label>
+            <input type="email" name="email" class="form-control" placeholder="Masukkan email" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label text-success">Password</label>
+            <div class="input-group">
+                <input type="password" name="password" id="password" class="form-control" placeholder="Masukkan password" required>
+                <span class="input-group-text bg-white ">
+                    <i class="bi bi-eye text-success" id="togglePassword" style="cursor:pointer;"></i>
+                </span>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Daftar</button>
     </form>
-    <p>Sudah punya akun? <a href="login_user.php">Login di sini</a></p>
+
+    <p class="text-center mt-3 text-secondary">
+        Sudah punya akun? <a href="login_user.php" class="text-success fw-bold">Login di sini</a>
+    </p>
+</div>
+
+<script>
+const togglePassword = document.querySelector("#togglePassword");
+const password = document.querySelector("#password");
+
+togglePassword.addEventListener("click", function () {
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+    this.classList.toggle("bi-eye");
+    this.classList.toggle("bi-eye-slash");
+});
+</script>
+
 </body>
 </html>
