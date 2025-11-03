@@ -10,7 +10,7 @@ if (!$conn) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-// Hapus tabel yang ada jika perlu (untuk development)
+// // Hapus tabel yang ada jika perlu (untuk development)
 // mysqli_query($conn, "DROP TABLE IF EXISTS denda");
 // mysqli_query($conn, "DROP TABLE IF EXISTS konfirmasi_kedatangan");
 // mysqli_query($conn, "DROP TABLE IF EXISTS pembayaran");
@@ -20,7 +20,7 @@ if (!$conn) {
 // mysqli_query($conn, "DROP TABLE IF EXISTS lokasi");
 // mysqli_query($conn, "DROP TABLE IF EXISTS users");
 
-// Membuat tabel users
+// // Membuat tabel users
 // mysqli_query($conn, "CREATE TABLE users (
 //     id_user INT(11) AUTO_INCREMENT PRIMARY KEY,
 //     username VARCHAR(50) NOT NULL UNIQUE,
@@ -34,7 +34,7 @@ if (!$conn) {
 //     tanggal_daftar TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 // )");
 
-// Membuat tabel lokasi
+// // Membuat tabel lokasi
 // mysqli_query($conn, "CREATE TABLE lokasi (
 //     id_lokasi INT(11) AUTO_INCREMENT PRIMARY KEY,
 //     nama_lokasi VARCHAR(100) NOT NULL,
